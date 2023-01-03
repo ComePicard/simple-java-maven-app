@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Deliver'){
             steps {
-                sh './jenkins/scritps/deliver.sh'
+                sh '/home/DS-DevOps/github/simple-java-maven-app/jenkins/scritps/deliver.sh'
             }
         }
     }
