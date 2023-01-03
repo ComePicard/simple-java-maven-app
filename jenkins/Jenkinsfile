@@ -14,19 +14,19 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Test'){
+        stage('Test') {
             steps {
                 sh 'mvn test'
             }
             post {
                 always {
-                    junit '**/*.xml'
+                    junit 'target/surefire-reports/*.xml'
                 }
             }
         }
-        stage('Deliver'){
+        stage('Deliver') { 
             steps {
-                sh '/home/DS-DevOps/github/simple-java-maven-app/jenkins/scritps/deliver.sh'
+                sh './jenkins/scripts/deliver.sh' 
             }
         }
     }
